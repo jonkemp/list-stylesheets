@@ -24,7 +24,7 @@ module.exports = function (html, options) {
             Object.keys(blocks).forEach(function (key) {
                 var re = new RegExp(blocks[key].start + '([\\S\\s]*?)' + blocks[key].end, 'g');
 
-                __html = __html.replace(re, function (match) {
+                __html = String(__html).replace(re, function (match) {
                     codeBlockLookup.push(match);
                     return 'EXCS_CODE_BLOCK_' + (codeBlockLookup.length - 1) + '_';
                 });
