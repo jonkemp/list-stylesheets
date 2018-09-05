@@ -18,7 +18,7 @@ module.exports = function (html, options) {
         },
         codeBlockLookup = [],
         encodeCodeBlocks = function (_html) {
-            var __html = _html,
+            var __html = String(_html),
                 blocks = extend(codeBlocks, options.codeBlocks);
 
             Object.keys(blocks).forEach(function (key) {
