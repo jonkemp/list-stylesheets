@@ -6,6 +6,7 @@
   "scripts": {
     "test": "mocha",
     "coverage": "nyc npm test && nyc report",
+    "postcoverage": "node ./setup/process-coverage-report.js",
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
@@ -21,6 +22,16 @@
     "url": "https://github.com/jonkemp/list-stylesheets/issues"
   },
   "homepage": "https://github.com/jonkemp/list-stylesheets",
+  "nyc": {
+    "reporter": [
+      "html"
+    ],
+    "report-dir": "./.test_output/coverage",
+    "cache": true,
+    "all": true,
+    "sourceMap": true,
+    "instrument": true
+  },
   "dependencies": {
     "cheerio": "^0.22.0",
     "extend": "^3.0.1",
@@ -32,6 +43,7 @@
     "gulp-eslint": "^4.0.2",
     "gulp-mocha": "^5.0.0",
     "gulp-util": "^3.0.8",
+    "inline-css": "^2.4.0",
     "mocha": "^5.0.1",
     "nyc": "^11.4.1",
     "should": "^13.2.1"
